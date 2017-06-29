@@ -1,13 +1,15 @@
 package com.kris.projects.banktransactions.dto;
 
+import java.math.BigDecimal;
+
 public class BankTransactionDTO {
 
 	double customerAccount;
 	double transactionamount;
 
-	transient double debit;
-	transient double credit;
-	transient double count;
+	transient BigDecimal debit;
+	transient BigDecimal credit;
+	transient BigDecimal count;
 
 	public BankTransactionDTO() {
 
@@ -18,7 +20,7 @@ public class BankTransactionDTO {
 		this.transactionamount = amount;
 	}
 
-	public BankTransactionDTO(double count, double debit, double credit) {
+	public BankTransactionDTO(BigDecimal count, BigDecimal debit, BigDecimal credit) {
 		this.debit = debit;
 		this.credit = credit;
 		this.count = count;
@@ -40,27 +42,27 @@ public class BankTransactionDTO {
 		this.transactionamount = transactionamount;
 	}
 
-	public double getDebit() {
+	public BigDecimal getDebit() {
 		return debit;
 	}
 
-	public void setDebit(double debit) {
+	public void setDebit(BigDecimal debit) {
 		this.debit = debit;
 	}
 
-	public double getCredit() {
+	public BigDecimal getCredit() {
 		return credit;
 	}
 
-	public void setCredit(double credit) {
+	public void setCredit(BigDecimal credit) {
 		this.credit = credit;
 	}
 
-	public double getCount() {
+	public BigDecimal getCount() {
 		return count;
 	}
 
-	public void setCount(double count) {
+	public void setCount(BigDecimal count) {
 		this.count = count;
 	}
 

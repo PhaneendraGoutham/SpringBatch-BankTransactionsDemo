@@ -1,5 +1,0 @@
-File Processed: 
-Total Accounts: 2.0
-Total Credits : 1100.0
-Total Debits  : -700.0
-Skipped Transactions : 0

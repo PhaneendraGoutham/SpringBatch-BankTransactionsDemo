@@ -5,12 +5,11 @@ import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
 import org.springframework.batch.item.file.mapping.DefaultLineMapper;
 import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
 import org.springframework.core.io.PathResource;
-
 import com.kris.projects.banktransactions.dto.BankTransactionDTO;
 import com.kris.projects.banktransactions.util.BankTransactionUtility;
 
 public class BankTransactionReader {
-	
+
 	public FlatFileItemReader<BankTransactionDTO> transactionReader() {
 		FlatFileItemReader<BankTransactionDTO> reader = new FlatFileItemReader<BankTransactionDTO>();
 		reader.setResource(new PathResource(BankTransactionUtility.getFileName(BankTransactionUtility.READ)));
@@ -19,7 +18,7 @@ public class BankTransactionReader {
 			{
 				setLineTokenizer(new DelimitedLineTokenizer() {
 					{
-						setNames(new String[] {BankTransactionUtility.CUSTOMER_ACCOUNT,
+						setNames(new String[] { BankTransactionUtility.CUSTOMER_ACCOUNT,
 								BankTransactionUtility.TRANSACTION_AMOUNT });
 					}
 				});
@@ -32,7 +31,4 @@ public class BankTransactionReader {
 		});
 		return reader;
 	}
-	
-
-	
 }

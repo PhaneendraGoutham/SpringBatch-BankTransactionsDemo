@@ -43,33 +43,28 @@ public class BankTransactionListener extends JobExecutionListenerSupport {
 					new RowMapper<BankTransactionDTO>() {
 						@Override
 						public BankTransactionDTO mapRow(ResultSet rs, int row) throws SQLException {
-							return new BankTransactionDTO(rs.getDouble(1), rs.getDouble(2), rs.getDouble(3));
+							return new BankTransactionDTO(rs.getBigDecimal(1), rs.getBigDecimal(2),
+									rs.getBigDecimal(3));
 						}
 					});
-			
+
 			result = results.get(0);
-			
-			if (result==null) {
+
+			if (result == null) {
 				log.error("Program Error: Unable to retrieve the execution details");
-			}
-			else {
+			} else {
 				String newline = "\n";
 				StringBuffer sbf = new StringBuffer("File Processed: ")
-						.append(BankTransactionUtility.getFileName("read")).append(newline)
-						.append("Total Accounts: ").append(result.getCount()).append(newline)
-						.append("Total Credits : ").append(result.getCredit()).append(newline)
-						.append("Total Debits  : ").append(result.getDebit()).append(newline)
-						.append("Skipped Transactions : ").append(0).append(newline);
-						
+						.append(BankTransactionUtility.getFileName("read")).append(newline).append("Total Accounts: ")
+						.append(result.getCount()).append(newline).append("Total Credits : ").append(result.getCredit())
+						.append(newline).append("Total Debits  : ").append(result.getDebit()).append(newline)
+						.append("Skipped Transactions : ").append(BankTransactionUtility.INVALIDRECORDS)
+						.append(newline);
+
 				try {
-					Files.write(
-							Paths.get(
-									BankTransactionUtility
-									.getFileName(
-											BankTransactionUtility.JOBREPORT))
-									, sbf.toString().getBytes()
-								);
-					
+					Files.write(Paths.get(BankTransactionUtility.getFileName(BankTransactionUtility.JOBREPORT)),
+							sbf.toString().getBytes());
+
 				} catch (IOException e) {
 					e.printStackTrace();
 					log.error("Program Error: Unable to retrieve the execution details");

@@ -8,17 +8,18 @@ import org.springframework.batch.core.configuration.annotation.EnableBatchProces
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
+import org.springframework.batch.core.step.skip.SkipPolicy;
 import org.springframework.batch.item.database.JdbcBatchItemWriter;
 import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import com.kris.projects.banktransactions.batch.BankTransactionListener;
 import com.kris.projects.banktransactions.batch.BankTransactionProcessor;
 import com.kris.projects.banktransactions.batch.BankTransactionReader;
 import com.kris.projects.banktransactions.batch.BankTransactionWriter;
 import com.kris.projects.banktransactions.dto.BankTransactionDTO;
+import com.kris.projects.banktransactions.util.InvalidBankTransactions;
 
 @Configuration
 @EnableBatchProcessing
@@ -52,14 +53,19 @@ public class BankTransactionConfig {
 
 	@Bean
 	public Job listenerJob(BankTransactionListener listener) {
-		return jobBuilderFactory.get("listenerJob").incrementer(new RunIdIncrementer()).listener(listener)
-				.flow(step1()).end().build();
+		return jobBuilderFactory.get("listenerJob").incrementer(new RunIdIncrementer()).listener(listener).flow(step1())
+				.end().build();
+	}
+
+	@Bean
+	public SkipPolicy invalidTransactions() {
+		return new InvalidBankTransactions();
 	}
 
 	@Bean
 	public Step step1() {
-		return stepBuilderFactory.get("step1").<BankTransactionDTO, BankTransactionDTO>chunk(10).reader(reader())
-				.processor(processor()).writer(writer()).build();
+		return stepBuilderFactory.get("step1").<BankTransactionDTO, BankTransactionDTO>chunk(1000).reader(reader())
+				.faultTolerant().skipPolicy(invalidTransactions()).processor(processor()).writer(writer()).build();
 	}
 
 }
