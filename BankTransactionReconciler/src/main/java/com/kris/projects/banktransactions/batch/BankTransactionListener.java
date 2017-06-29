@@ -64,6 +64,9 @@ public class BankTransactionListener extends JobExecutionListenerSupport {
 				try {
 					Files.write(Paths.get(BankTransactionUtility.getFileName(BankTransactionUtility.JOBREPORT)),
 							sbf.toString().getBytes());
+					Files.move( Paths.get(BankTransactionUtility.getFileName(BankTransactionUtility.READ)), 
+							   Paths.get(BankTransactionUtility.getFileName(BankTransactionUtility.WRITE))
+							);
 
 				} catch (IOException e) {
 					e.printStackTrace();
