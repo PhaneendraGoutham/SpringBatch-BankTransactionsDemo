@@ -1,0 +1,48 @@
+2017-07-01 02:35:46.750  INFO 15524 --- [main] c.k.p.banktransactions.Application       : Starting Application on DESKTOP-B2ITNV3 with PID 15524 (D:\work\GIT\SpringBatch-BankTransactionsDemo\BankTransactionReconciler\target\classes started by krish in D:\work\GIT\SpringBatch-BankTransactionsDemo\BankTransactionReconciler)
+2017-07-01 02:35:46.758 DEBUG 15524 --- [main] c.k.p.banktransactions.Application       : Running with Spring Boot v1.5.2.RELEASE, Spring v4.3.7.RELEASE
+2017-07-01 02:35:46.759  INFO 15524 --- [main] c.k.p.banktransactions.Application       : No active profile set, falling back to default profiles: default
+2017-07-01 02:35:48.102  INFO 15524 --- [main] c.k.p.banktransactions.Application       : Started Application in 1.563 seconds (JVM running for 1.835)
+2017-07-01 02:36:00.006  INFO 15524 --- [pool-2-thread-1] c.k.p.b.config.BankTransactionConfig     : Job Started at :Sat Jul 01 02:36:00 AEST 2017
+2017-07-01 02:36:00.051 DEBUG 15524 --- [pool-2-thread-1] c.k.p.b.util.BankTransactionUtility      : Input csv Filename -> D:\work\GIT\SpringBatch-BankTransactionsDemo\TRANSACTION_PROCESSING\Pending\finance_customer_transactions-2017017012345.csv
+2017-07-01 02:36:00.066 DEBUG 15524 --- [pool-2-thread-1] c.k.p.b.util.BankTransactionUtility      : Input csv Filename -> D:\work\GIT\SpringBatch-BankTransactionsDemo\TRANSACTION_PROCESSING\Pending\finance_customer_transactions-2017017012345.csv
+2017-07-01 02:36:13.073  INFO 15524 --- [pool-2-thread-1] c.k.p.b.batch.BankTransactionListener    : Read and Write Job Completed --> COMPLETED
+2017-07-01 02:36:13.422 DEBUG 15524 --- [pool-2-thread-1] c.k.p.b.util.BankTransactionUtility      : Input csv Filename -> D:\work\GIT\SpringBatch-BankTransactionsDemo\TRANSACTION_PROCESSING\Pending\finance_customer_transactions-2017017012345.csv
+2017-07-01 02:36:13.426 DEBUG 15524 --- [pool-2-thread-1] c.k.p.b.util.BankTransactionUtility      : Input csv Filename -> D:\work\GIT\SpringBatch-BankTransactionsDemo\TRANSACTION_PROCESSING\Pending\finance_customer_transactions-2017017012345.csv
+2017-07-01 02:36:13.427  INFO 15524 --- [pool-2-thread-1] c.k.p.b.batch.BankTransactionListener    : Completed all the tasks... 
+2017-07-01 02:36:14.900  INFO 15524 --- [pool-2-thread-1] c.k.p.b.config.BankTransactionConfig     : Job finished with status :COMPLETED
+2017-07-01 02:45:28.232  INFO 7840 --- [main] c.k.p.banktransactions.Application       : Starting Application on DESKTOP-B2ITNV3 with PID 7840 (D:\work\GIT\SpringBatch-BankTransactionsDemo\BankTransactionReconciler\target\classes started by krish in D:\work\GIT\SpringBatch-BankTransactionsDemo\BankTransactionReconciler)
+2017-07-01 02:45:28.234 DEBUG 7840 --- [main] c.k.p.banktransactions.Application       : Running with Spring Boot v1.5.2.RELEASE, Spring v4.3.7.RELEASE
+2017-07-01 02:45:28.234  INFO 7840 --- [main] c.k.p.banktransactions.Application       : No active profile set, falling back to default profiles: default
+2017-07-01 02:45:29.569  INFO 7840 --- [main] c.k.p.banktransactions.Application       : Started Application in 1.56 seconds (JVM running for 1.831)
+2017-07-01 02:46:00.005  INFO 7840 --- [pool-2-thread-1] c.k.p.b.config.BankTransactionConfig     : Job Started at :Sat Jul 01 02:46:00 AEST 2017
+2017-07-01 02:46:00.047 DEBUG 7840 --- [pool-2-thread-1] c.k.p.b.util.BankTransactionUtility      : Input csv Filename -> D:\work\GIT\SpringBatch-BankTransactionsDemo\TRANSACTION_PROCESSING\Pending\finance_customer_transactions-2017017012345.csv
+2017-07-01 02:46:00.061 DEBUG 7840 --- [pool-2-thread-1] c.k.p.b.util.BankTransactionUtility      : Input csv Filename -> D:\work\GIT\SpringBatch-BankTransactionsDemo\TRANSACTION_PROCESSING\Pending\finance_customer_transactions-2017017012345.csv
+2017-07-01 02:46:13.087  INFO 7840 --- [pool-2-thread-1] c.k.p.b.batch.BankTransactionListener    : Read and Write Job Completed --> COMPLETED
+2017-07-01 02:46:13.452 DEBUG 7840 --- [pool-2-thread-1] c.k.p.b.util.BankTransactionUtility      : Input csv Filename -> D:\work\GIT\SpringBatch-BankTransactionsDemo\TRANSACTION_PROCESSING\Pending\finance_customer_transactions-2017017012345.csv
+2017-07-01 02:46:13.457 DEBUG 7840 --- [pool-2-thread-1] c.k.p.b.util.BankTransactionUtility      : Input csv Filename -> D:\work\GIT\SpringBatch-BankTransactionsDemo\TRANSACTION_PROCESSING\Pending\finance_customer_transactions-2017017012345.csv
+2017-07-01 02:46:13.458  INFO 7840 --- [pool-2-thread-1] c.k.p.b.batch.BankTransactionListener    : Completed all the tasks... 
+2017-07-01 02:46:13.865  INFO 7840 --- [pool-2-thread-1] c.k.p.b.config.BankTransactionConfig     : Job finished with status :COMPLETED
+2017-07-01 02:47:54.315  INFO 22496 --- [main] c.k.p.banktransactions.Application       : Starting Application on DESKTOP-B2ITNV3 with PID 22496 (D:\work\GIT\SpringBatch-BankTransactionsDemo\BankTransactionReconciler\target\classes started by krish in D:\work\GIT\SpringBatch-BankTransactionsDemo\BankTransactionReconciler)
+2017-07-01 02:47:54.317 DEBUG 22496 --- [main] c.k.p.banktransactions.Application       : Running with Spring Boot v1.5.2.RELEASE, Spring v4.3.7.RELEASE
+2017-07-01 02:47:54.317  INFO 22496 --- [main] c.k.p.banktransactions.Application       : No active profile set, falling back to default profiles: default
+2017-07-01 02:47:55.687  INFO 22496 --- [main] c.k.p.banktransactions.Application       : Started Application in 1.59 seconds (JVM running for 1.859)
+2017-07-01 02:48:00.006  INFO 22496 --- [pool-2-thread-1] c.k.p.b.config.BankTransactionConfig     : Job Started at :Sat Jul 01 02:48:00 AEST 2017
+2017-07-01 02:48:00.054 DEBUG 22496 --- [pool-2-thread-1] c.k.p.b.util.BankTransactionUtility      : Input csv Filename -> D:\work\GIT\SpringBatch-BankTransactionsDemo\TRANSACTION_PROCESSING\Pending\finance_customer_transactions-2017017012345.csv
+2017-07-01 02:48:00.068 DEBUG 22496 --- [pool-2-thread-1] c.k.p.b.util.BankTransactionUtility      : Input csv Filename -> D:\work\GIT\SpringBatch-BankTransactionsDemo\TRANSACTION_PROCESSING\Pending\finance_customer_transactions-2017017012345.csv
+2017-07-01 02:48:12.162  INFO 22496 --- [pool-2-thread-1] c.k.p.b.batch.BankTransactionListener    : Read and Write Job Completed --> COMPLETED
+2017-07-01 02:48:12.544 DEBUG 22496 --- [pool-2-thread-1] c.k.p.b.util.BankTransactionUtility      : Input csv Filename -> D:\work\GIT\SpringBatch-BankTransactionsDemo\TRANSACTION_PROCESSING\Pending\finance_customer_transactions-2017017012345.csv
+2017-07-01 02:48:12.549 DEBUG 22496 --- [pool-2-thread-1] c.k.p.b.util.BankTransactionUtility      : Input csv Filename -> D:\work\GIT\SpringBatch-BankTransactionsDemo\TRANSACTION_PROCESSING\Pending\finance_customer_transactions-2017017012345.csv
+2017-07-01 02:48:12.550  INFO 22496 --- [pool-2-thread-1] c.k.p.b.batch.BankTransactionListener    : Completed all the tasks... 
+2017-07-01 02:48:12.956  INFO 22496 --- [pool-2-thread-1] c.k.p.b.config.BankTransactionConfig     : Job finished with status :COMPLETED
+2017-07-01 02:50:15.990  INFO 20512 --- [main] c.k.p.banktransactions.Application       : Starting Application on DESKTOP-B2ITNV3 with PID 20512 (D:\work\GIT\SpringBatch-BankTransactionsDemo\BankTransactionReconciler\target\classes started by krish in D:\work\GIT\SpringBatch-BankTransactionsDemo\BankTransactionReconciler)
+2017-07-01 02:50:15.993 DEBUG 20512 --- [main] c.k.p.banktransactions.Application       : Running with Spring Boot v1.5.2.RELEASE, Spring v4.3.7.RELEASE
+2017-07-01 02:50:15.994  INFO 20512 --- [main] c.k.p.banktransactions.Application       : No active profile set, falling back to default profiles: default
+2017-07-01 02:50:17.342  INFO 20512 --- [main] c.k.p.banktransactions.Application       : Started Application in 1.57 seconds (JVM running for 1.846)
+2017-07-01 02:51:00.007  INFO 20512 --- [pool-2-thread-1] c.k.p.b.config.BankTransactionConfig     : Job Started at :Sat Jul 01 02:51:00 AEST 2017
+2017-07-01 02:51:00.050 DEBUG 20512 --- [pool-2-thread-1] c.k.p.b.util.BankTransactionUtility      : Input csv Filename -> D:\work\GIT\SpringBatch-BankTransactionsDemo\TRANSACTION_PROCESSING\Pending\finance_customer_transactions-2017017012345.csv
+2017-07-01 02:51:00.065 DEBUG 20512 --- [pool-2-thread-1] c.k.p.b.util.BankTransactionUtility      : Input csv Filename -> D:\work\GIT\SpringBatch-BankTransactionsDemo\TRANSACTION_PROCESSING\Pending\finance_customer_transactions-2017017012345.csv
+2017-07-01 02:51:11.845  INFO 20512 --- [pool-2-thread-1] c.k.p.b.batch.BankTransactionListener    : Read and Write Job Completed --> COMPLETED
+2017-07-01 02:51:12.208 DEBUG 20512 --- [pool-2-thread-1] c.k.p.b.util.BankTransactionUtility      : Input csv Filename -> D:\work\GIT\SpringBatch-BankTransactionsDemo\TRANSACTION_PROCESSING\Pending\finance_customer_transactions-2017017012345.csv
+2017-07-01 02:51:12.214 DEBUG 20512 --- [pool-2-thread-1] c.k.p.b.util.BankTransactionUtility      : Input csv Filename -> D:\work\GIT\SpringBatch-BankTransactionsDemo\TRANSACTION_PROCESSING\Pending\finance_customer_transactions-2017017012345.csv
+2017-07-01 02:51:12.215  INFO 20512 --- [pool-2-thread-1] c.k.p.b.batch.BankTransactionListener    : Completed all the tasks... 
+2017-07-01 02:51:12.603  INFO 20512 --- [pool-2-thread-1] c.k.p.b.config.BankTransactionConfig     : Job finished with status :COMPLETED

@@ -2,6 +2,6 @@ DROP TABLE people IF EXISTS;
 
 CREATE TABLE customertransactions  (
     id BIGINT IDENTITY NOT NULL PRIMARY KEY,
-    account NUMERIC,
-    amount NUMERIC
+    account NUMERIC(10),
+    amount NUMERIC(12,2)
 );

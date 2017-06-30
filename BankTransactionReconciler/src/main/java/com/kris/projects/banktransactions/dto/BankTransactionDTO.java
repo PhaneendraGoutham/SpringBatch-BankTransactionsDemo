@@ -11,9 +11,7 @@ public class BankTransactionDTO {
 	transient BigDecimal credit;
 	transient BigDecimal count;
 
-	public BankTransactionDTO() {
-
-	}
+	public BankTransactionDTO() {}
 
 	public BankTransactionDTO(double account, double amount) {
 		this.customerAccount = account;
