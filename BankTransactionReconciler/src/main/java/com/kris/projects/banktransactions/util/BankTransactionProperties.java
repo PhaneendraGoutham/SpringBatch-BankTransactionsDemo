@@ -3,17 +3,23 @@ package com.kris.projects.banktransactions.util;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+/**
+ * This Class will wire the properties using ConfigurationProperties
+ * 
+ * @author Krishna Angeras
+ *
+ */
 @Component
 @ConfigurationProperties
 public class BankTransactionProperties {
 
-	String envpath;
-	String insertqry;
-	String deleteqry;
-	String selectqry;
-	String inputfileprefix;
-	String customeraccount;
-	String transactionamount;
+	private String envpath;
+	private String insertqry;
+	private String deleteqry;
+	private String selectqry;
+	private String inputfileprefix;
+	private String customeraccount;
+	private String transactionamount;
 
 	public String getEnvpath() {
 		return envpath;

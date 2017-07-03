@@ -16,12 +16,31 @@ import com.kris.projects.banktransactions.dto.BankTransactionDTO;
 import com.kris.projects.banktransactions.util.BankTransactionProperties;
 import com.kris.projects.banktransactions.util.BankTransactionUtility;
 
+/**
+ * Helper class for ItemReader bean- FlatFileItemReader is used for reading the
+ * csv file, tokenizing and mapping it to DTO
+ * 
+ * @author Krishna Angeras
+ *
+ */
 @Component
+
 public class BankTransactionReader {
 
 	private static final Logger logger = LoggerFactory.getLogger(BankTransactionReader.class);
 
+	/**
+	 * Method to read the Input csv file, tokenize the lines with ',' and map
+	 * the elements with BankTransactionDTO
+	 * 
+	 * @param properties
+	 *            instance of BankTransactionProperties
+	 * @return reader FlatFileItemReader implementation of ItemReader (Mapped
+	 *         BankTransactionDTO object)
+	 */
+
 	public FlatFileItemReader<BankTransactionDTO> transactionReader(BankTransactionProperties properties) {
+		logger.info("Executing FlatFileItemReader...");
 		BankTransactionUtility bankTransactionUtility = new BankTransactionUtility(properties);
 		FlatFileItemReader<BankTransactionDTO> reader = new FlatFileItemReader<BankTransactionDTO>();
 		String filePath = bankTransactionUtility.getFileName(BankTransactionUtility.READ);
@@ -42,6 +61,7 @@ public class BankTransactionReader {
 				});
 			}
 		});
+		reader.setSaveState(false);
 		return reader;
 	}
 }

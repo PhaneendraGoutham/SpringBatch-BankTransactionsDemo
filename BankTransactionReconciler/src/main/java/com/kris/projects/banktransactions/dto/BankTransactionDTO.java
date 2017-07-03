@@ -2,16 +2,27 @@ package com.kris.projects.banktransactions.dto;
 
 import java.math.BigDecimal;
 
+import org.springframework.batch.core.configuration.annotation.StepScope;
+
+/**
+ * POJO class for input processing and reporting
+ * 
+ * @author Krishna Angeras
+ *
+ */
+@StepScope
 public class BankTransactionDTO {
 
 	double customerAccount;
 	double transactionamount;
 
+	//
 	transient BigDecimal debit;
 	transient BigDecimal credit;
 	transient BigDecimal count;
 
-	public BankTransactionDTO() {}
+	public BankTransactionDTO() {
+	}
 
 	public BankTransactionDTO(double account, double amount) {
 		this.customerAccount = account;

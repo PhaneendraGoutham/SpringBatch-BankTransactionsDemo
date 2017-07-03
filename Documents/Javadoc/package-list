@@ -1,0 +1,6 @@
+com.kris.projects.banktransactions
+com.kris.projects.banktransactions.batch
+com.kris.projects.banktransactions.config
+com.kris.projects.banktransactions.dto
+com.kris.projects.banktransactions.scheduler
+com.kris.projects.banktransactions.util

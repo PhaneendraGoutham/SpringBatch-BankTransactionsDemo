@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.batch.core.BatchStatus;
 import org.springframework.batch.core.JobExecution;
+import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.core.listener.JobExecutionListenerSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -21,7 +22,16 @@ import com.kris.projects.banktransactions.dto.BankTransactionDTO;
 import com.kris.projects.banktransactions.util.BankTransactionProperties;
 import com.kris.projects.banktransactions.util.BankTransactionUtility;
 
+/**
+ * A custom listener class that extends JobExecutionListenerSupport. Overrides
+ * beforeJob and afterJob to perform pre validation and post tasks (like file
+ * move and reporting)
+ * 
+ * @author Krishna Angeras
+ *
+ */
 @Component
+
 public class BankTransactionListener extends JobExecutionListenerSupport {
 
 	private static final Logger logger = LoggerFactory.getLogger(BankTransactionListener.class);
@@ -29,22 +39,47 @@ public class BankTransactionListener extends JobExecutionListenerSupport {
 	private final JdbcTemplate jdbcTemplate;
 	private final BankTransactionProperties properties;
 
+	/**
+	 * Autowiring JdbcTemplate, Properties to the Constructor
+	 * 
+	 * @param jdbcTemplate
+	 *            Autowire Spring JdbcTemplate class
+	 * @param properties
+	 *            Autowire BankTransactionProperties
+	 */
 	@Autowired
-	public BankTransactionListener(JdbcTemplate jdbcTemplate, BankTransactionProperties properties) {
+
+	public BankTransactionListener(BankTransactionProperties properties, JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 		this.properties = properties;
 	}
 
+	/**
+	 * Overridden method - Validating if the input Path exists or not and
+	 * terminate the job execution if the file does not exist
+	 * 
+	 * @see org.springframework.batch.core.listener.JobExecutionListenerSupport#beforeJob(org.springframework.batch.core.JobExecution)
+	 * 
+	 */
 	@Override
 	public void beforeJob(JobExecution jobExecution) {
 		BankTransactionUtility bankTransactionUtility = new BankTransactionUtility(properties);
 		if (bankTransactionUtility.getFileName(BankTransactionUtility.READ).equals("")) {
 			logger.error("Input File Not Found... -> " + jobExecution.getStatus());
+			jobExecution.setStatus(BatchStatus.FAILED);
 			jobExecution.stop();
 		}
 	}
 
+	/**
+	 * Overridden method - Once ItemReader and ItemWriter are executed, Perform
+	 * file copy and reporting
+	 * 
+	 * @see org.springframework.batch.core.listener.JobExecutionListenerSupport#afterJob(org.springframework.batch.core.JobExecution)
+	 * 
+	 */
 	@Override
+	@StepScope
 	public void afterJob(JobExecution jobExecution) {
 		BankTransactionUtility bankTransactionUtility = new BankTransactionUtility(properties);
 		if (jobExecution.getStatus() == BatchStatus.COMPLETED) {
@@ -85,16 +120,19 @@ public class BankTransactionListener extends JobExecutionListenerSupport {
 				}
 			}
 		}
-
 		cleanup();
 	}
 
+	/**
+	 * Method to clean up the table and reset the invalid records count - to
+	 * prepare for the next batch
+	 */
 	private void cleanup() {
 		BankTransactionUtility.INVALIDRECORDS = 0;
 		try {
 			jdbcTemplate.execute(properties.getDeleteqry());
+			logger.debug("CLEARED THE TABLES");
 		} catch (Exception e) {
-			e.printStackTrace();
 			logger.error("Error after Job execution.. during Clean up -> " + e.toString());
 		}
 	}

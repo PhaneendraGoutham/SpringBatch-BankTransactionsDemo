@@ -1,19 +1,24 @@
 package com.kris.projects.banktransactions.util;
 
 import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.batch.core.configuration.annotation.StepScope;
+import org.springframework.batch.core.configuration.annotation.JobScope;
 import org.springframework.stereotype.Component;
 
+/**
+ * Utility class that contain file handling and other utilities
+ * 
+ * @author Krishna Angeras
+ *
+ */
 @Component
-@StepScope
+@JobScope
 public class BankTransactionUtility {
 
 	private BankTransactionProperties properties;
+
 	public static final String READ = "read";
 	public static final String WRITE = "write";
 	public static final String JOBREPORT = "reports";
@@ -31,6 +36,14 @@ public class BankTransactionUtility {
 		this.properties = properties;
 	}
 
+	/**
+	 * Method to get the fileName based on action - read, report and write
+	 * 
+	 * @param action
+	 *            read, write, report actions
+	 * @return Filename based on action parameter
+	 */
+
 	public String getFileName(String action) {
 		File directory = null;
 		String fileName = "";
@@ -39,7 +52,7 @@ public class BankTransactionUtility {
 		if (envPath == null) {
 			logger.debug("Directory created -> " + directory);
 		}
-
+		else {
 		if (action.equals(READ)) {
 			directory = new File(envPath + PENDING);
 			if (!directory.exists()) {
@@ -81,6 +94,7 @@ public class BankTransactionUtility {
 				logger.info("Directory created -> " + directory);
 			}
 			fileName = envPath + REPORTS + INPUTFILENAME.replace(".csv", ".txt");
+		}
 		}
 		return fileName;
 	}

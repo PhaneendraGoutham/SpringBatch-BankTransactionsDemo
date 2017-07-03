@@ -1,5 +1,0 @@
-File Processed: D:\work\GIT\SpringBatch-BankTransactionsDemo\TRANSACTION_PROCESSING\Pending\finance_customer_transactions-2017017012345.csv
-Total Accounts: 4954
-Total Credits : 25718621099.99
-Total Debits  : -368343500.00
-Skipped Transactions : 7

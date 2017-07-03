@@ -6,12 +6,17 @@ import org.springframework.batch.core.repository.support.MapJobRepositoryFactory
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
+/**
+ * This Class contains beans required for simple job launch
+ * 
+ * @author Krishna Angeras
+ *
+ */
 @EnableScheduling
 public class BatchScheduler {
 
 	@Bean
 	public MapJobRepositoryFactoryBean mapJobRepositoryFactory() throws Exception {
-
 		MapJobRepositoryFactoryBean factory = new MapJobRepositoryFactoryBean();
 		return factory;
 	}
@@ -21,6 +26,13 @@ public class BatchScheduler {
 		return factory.getObject();
 	}
 
+	/**
+	 * Method to configure and return a SimpleJobLauncher object
+	 * 
+	 * @param jobRepository
+	 *            a SimpleJobRepository object
+	 * @return launcher instance of SimpleJobLauncher
+	 */
 	@Bean
 	public SimpleJobLauncher jobLauncher(JobRepository jobRepository) {
 		SimpleJobLauncher launcher = new SimpleJobLauncher();
